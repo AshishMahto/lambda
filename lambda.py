@@ -158,24 +158,23 @@ lines = []
 
 def runStep(flag, prog, box):
   i, instr0 = head(prog)
-  # def print(s, end="\n"):
-  #   global lines
-  #   return lines.append(s + end)
+  def print(s, **kwargs): return
 
   print(f'[{i:03}] - ',end="")
+  lines.append(i)
   global labels
-  def getLabel(): return labels[i] if i in labels else ''
+  def getLabel(): return ' ' + labels[i] if i in labels else ''
 
   if instr0[0]:
     if instr0[0][0]:
-      print(f'read from box of {chr(num(head(box)))}: {num(head(box))}' + getLabel())
+      print(f'read from box of {num(head(box))}: {num(head(box))}' + getLabel())
       return (
         mkList(head(box), *tail(flag)),
         rotateL(prog),
         tail(box)
       )
     else:
-      print(f'write to box of {chr(num(head(flag)))}: {num(head(flag))}' + getLabel())
+      print(f'write to box of {num(head(flag))}: {num(head(flag))}' + getLabel())
       return (
         flag,
         rotateL(prog),
@@ -444,6 +443,8 @@ print('checking...')
 # --- takes 1-2 minutes to check flag
 o: Tuple = checkFlag(flag, prog)
 # ---
+with open('stack_trace_min.txt', 'w') as f:
+  f.write(','.join(map(str,lines)))
 
 print(o)
 
