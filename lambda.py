@@ -168,14 +168,14 @@ def our_hash(flag, prog, box):
 
   if instr0[0]:
     if instr0[0][0]:
-      print(f'box read  of {chr(num(head(box)))}: {num(head(box))}' + getLabel())
+      print(f'read from box of {chr(num(head(box)))}: {num(head(box))}' + getLabel())
       return (
         mkList(head(box), *tail(flag)),
         rotateL(prog),
         tail(box)
       )
     else:
-      print(f'box write of {chr(num(head(flag)))}: {num(head(flag))}' + getLabel())
+      print(f'write to box of {chr(num(head(flag)))}: {num(head(flag))}' + getLabel())
       return (
         flag,
         rotateL(prog),
@@ -387,6 +387,11 @@ def debugger():
   set[fb] int - set the head of flag/box to be int
   int         - take int steps
   """
+  def setFB(strInt, rest):
+    ret = ()
+    for _ in range(int(strInt)): ret = (ret,)
+    return tuple([ret] + rest)
+
   states = [(((), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), ()), # 20
     prog,
     mkList(
@@ -413,10 +418,12 @@ def debugger():
       which, what = inp[3:].split()
       if which == 'f':
         _, *f_tl = f
-        states.append(((int(what),) + f_tl, p, b))
+        states.append((setFB(what, f_tl), p, b))
+        print([num(i) for i in states[-1][0]])
       else:
         _, *b_tl = b
-        states.append((f, p, (int(what),) + b_tl))
+        states.append((f, p, setFB(what, b_tl)))
+        print([num(i) for i in states[-1][2]])
     else:
       nt = int(inp)
       if nt >= 0:
