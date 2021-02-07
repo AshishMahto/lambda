@@ -93,63 +93,58 @@ def map_ls(ls, f): return [f(i) for i in ls]
 
 
 encrypt= \
-  lambda _, prog, ___:(if1(
+  lambda flag, prog, box:(if1(
     fst(head(prog)),
     lambda:if1(
       fst(fst(head(prog))),
-      lambda:(mkList(head(___), *tail(_)), rotateL(prog), tail(___)),
-      lambda:(_, rotateL(prog), mkList(head(_), *___))
+      lambda:(mkList(head(box), *tail(flag)), rotateL(prog), tail(box)),
+      lambda:(flag, rotateL(prog), mkList(head(flag), *box))
     ),
     lambda:if1(
       fst(snd(head(prog))),
       lambda:if1(
         fst(fst(snd(head(prog)))),
-        lambda:(depth_to_church_numeral_unmemoized(head(___), _, rotateL), rotateL(prog), tail(___)),
-        lambda:(depth_to_church_numeral_unmemoized(head(___), _, rotateR), rotateL(prog), tail(___)),
+        lambda:(depth_to_church_numeral_unmemoized(head(box), flag, rotateL), rotateL(prog), tail(box)),
+        lambda:(depth_to_church_numeral_unmemoized(head(box), flag, rotateR), rotateL(prog), tail(box)),
       ),
       lambda:if1(
         fst(snd(snd(head(prog)))),
         lambda:if1(
           fst(fst(snd(snd(head(prog))))),
-          lambda:(_, depth_to_church_numeral_unmemoized(head(fst(fst(snd(snd(head(prog)))))), prog, rotateR), ___),
-          lambda:(_, depth_to_church_numeral_unmemoized(head(snd(fst(snd(snd(head(prog)))))), prog, rotateL), ___)
+          lambda:(flag, depth_to_church_numeral_unmemoized(head(fst(fst(snd(snd(head(prog)))))), prog, rotateR), box),
+          lambda:(flag, depth_to_church_numeral_unmemoized(head(snd(fst(snd(snd(head(prog)))))), prog, rotateL), box)
         ),
         lambda:if1(
           fst(snd(snd(snd(head(prog))))),
           lambda:if1(
             fst(fst(snd(snd(snd(head(prog)))))),
-            lambda:(_, rotateL(prog), mkList(head(fst(fst(snd(snd(snd(head(prog))))))), *___)),
-            lambda:(_, rotateL(prog), mkList(head(depth_to_church_numeral(head(snd(fst(snd(snd(snd(head(prog))))))), ___, rotateL)), *___))
+            lambda:(flag, rotateL(prog), mkList(head(fst(fst(snd(snd(snd(head(prog))))))), *box)),
+            lambda:(flag, rotateL(prog), mkList(head(depth_to_church_numeral(head(snd(fst(snd(snd(snd(head(prog))))))), box, rotateL)), *box))
           ),
           lambda:if1(
             fst(snd(snd(snd(snd(head(prog)))))),
             lambda:if1(
               fst(fst(snd(snd(snd(snd(head(prog))))))),
-              lambda:(_,
+              lambda:(flag,
                       if1(
-                        head(___),
+                        head(box),
                         lambda:rotateL(prog),
-                        lambda:rotateL(rotateL(prog))
-                      ),
-                      tail(___)
-                      ),
-              lambda:(_,
-                      depth_to_church_numeral_unmemoized(head(___), prog, rotateL),
-                      tail(___)
-                      )
+                        lambda:rotateL(rotateL(prog))),
+                      tail(box)),
+              lambda:(flag,
+                      depth_to_church_numeral_unmemoized(head(box), prog, rotateL),
+                      tail(box))
             ),
             lambda:if1(
               fst(snd(snd(snd(snd(snd(head(prog))))))),
               lambda:if1(
                 fst(fst(snd(snd(snd(snd(snd(head(prog)))))))),
-                lambda:(_,
+                lambda:(flag,
                         rotateL(prog),
-                        mkList(depth_to_church_numeral(head(___), head(tail(___)), mkTuple), *tail(tail(___)))
-                        ),
-                lambda:(_,
+                        mkList(depth_to_church_numeral(head(box), head(tail(box)), mkTuple), *tail(tail(box)))),
+                lambda:(flag,
                         rotateL(prog),
-                        mkList(depth_to_church_numeral(head(___), head(tail(___)), head), *tail(tail(___)))
-                        )
+                        mkList(depth_to_church_numeral(head(box), head(tail(box)), head), *tail(tail(box))))
               ),
               lambda:()
             )
@@ -159,9 +154,14 @@ encrypt= \
     )
   ))
 
+lines = []
 
-def our_hash(flag, prog, box):
+def runStep(flag, prog, box):
   i, instr0 = head(prog)
+  # def print(s, end="\n"):
+  #   global lines
+  #   return lines.append(s + end)
+
   print(f'[{i:03}] - ',end="")
   global labels
   def getLabel(): return labels[i] if i in labels else ''
@@ -337,10 +337,10 @@ def read_prog(i, instr0):
               return -1
 
 
-rec_encrypt=T(lambda flag, prog, box:if1(head(prog), lambda:rec_encrypt(*our_hash(flag, prog, box)), lambda:flag))
+recStep=T(lambda flag, prog, box:if1(prog[0][1], lambda:recStep(*runStep(flag, prog, box)), lambda:flag))
 
 checkFlag=lambda flag, prog:map1(
-  rec_encrypt(
+  recStep(
     ((), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), ()), # 20
     prog,
     mkList(
@@ -373,9 +373,9 @@ prog, _ = load(prog_string)
 prog = list(enumerate(prog))
 
 ln = len(prog)
-for i, e in prog[:-2]: labelRun(i, e)
+for i, e in prog[:-1]: labelRun(i, e)
 
-# print(*[read_prog(i, e) for i, e in prog[:-2]],end='\n')
+# print(*[read_prog(i, e) for i, e in prog[:-1]],end='\n',sep=",")
 
 flag = input('flag plz: ').encode('ascii')
 
@@ -398,6 +398,11 @@ def debugger():
       *map1(map1(flag, wrapper1), depth_extend),
       *((), (), (), (), (), (), (), (), (), (), (), (), (), (), (), ()) # 16
     ))]
+
+  def nextStep():
+    nonlocal states
+    return () if states[-1] == () else runStep(*states[-1])
+
   while True:
     inp = input('-----\n')
     if inp[0] == 'p':
@@ -411,8 +416,7 @@ def debugger():
     elif inp[:6] == 'until ':
       j = int(inp[6:])
       while states[-1][1][0][0] != j:
-        nxt = our_hash(*states[-1])
-        states.append(nxt)
+        states.append(nextStep())
     elif inp[:3] == 'set':
       (f, p, b) = states[-1]
       which, what = inp[3:].split()
@@ -428,8 +432,7 @@ def debugger():
       nt = int(inp)
       if nt >= 0:
         for _ in range(nt):
-          nxt = our_hash(*states[-1])
-          states.append(nxt)
+          states.append(nextStep())
       else:
         for _ in range(-nt): states.pop()
 
