@@ -1,0 +1,407 @@
+[000] - 6: write literal box of 0004	
+[001] - 2: cur pointer left				
+[002] - 5: jump forward  to  label00	
+[003] - 0: box read						# label27
+[004] - 6: write literal box of 0001	
+[005] - 2: cur pointer left				
+[006] - 0: box read						
+[007] - 6: write literal box of 0019	# label05
+[008] - 2: cur pointer left				
+[009] - 1: box write					
+[010] - 6: write literal box of 0001	
+[011] - B: box <- b[1] - b[0]		
+[012] - 0: box read						
+[013] - 6: write literal box of 0001	
+[014] - 2: cur pointer left				
+[015] - 1: box write					
+[016] - 6: write literal box of 0001	
+[017] - B: box <- b[1] - b[0]		
+[018] - 0: box read						
+[019] - 6: write literal box of 0019	
+[020] - 2: cur pointer left				
+[021] - 1: box write					
+[022] - 8: jump if box false
+[023] - 5: jump forward  to  label01	
+[024] - 6: write literal box of 0001	
+[025] - 2: cur pointer left				
+[026] - 5: jump forward  to  label02	
+[027] - 6: write literal box of 0001	# label01
+[028] - 2: cur pointer left				
+[029] - 1: box write					
+[030] - 8: jump if box false
+[031] - 5: jump forward  to  label03	
+[032] - 5: jump forward  to  label08	
+[033] - 5: jump forward  to  label05	# label03
+[034] - 1: box write					# label02
+[035] - 8: jump if box false
+[036] - 5: jump forward  to  label06	
+[037] - 5: jump forward  to  label07	
+[038] - 5: jump forward  to  label08	# label06
+[039] - 6: write literal box of 0000	# label07
+[040] - 5: jump forward  to  label09	
+[041] - 6: write literal box of 0001	# label08
+[042] - 6: write literal box of 0018	# label09
+[043] - 2: cur pointer left				
+[044] - 1: box write					
+[045] - 6: write literal box of 0362	
+[046] - A: box <- b[1] + b[0]		
+[047] - 9: unconditional jump		
+[048] - 6: write literal box of 0001	# label20
+[049] - 2: cur pointer left				
+[050] - 0: box read						
+[051] - 6: write literal box of 0019	
+[052] - 2: cur pointer left				
+[053] - 0: box read						
+[054] - 1: box write					# label14
+[055] - 6: write literal box of 0001	
+[056] - B: box <- b[1] - b[0]		
+[057] - 0: box read						
+[058] - 6: write literal box of 0001	
+[059] - 2: cur pointer left				
+[060] - 1: box write					
+[061] - 6: write literal box of 0001	
+[062] - B: box <- b[1] - b[0]		
+[063] - 0: box read						
+[064] - 6: write literal box of 0019	
+[065] - 2: cur pointer left				
+[066] - 1: box write					
+[067] - 8: jump if box false
+[068] - 5: jump forward  to  label10	
+[069] - 6: write literal box of 0001	
+[070] - 2: cur pointer left				
+[071] - 5: jump forward  to  label11	
+[072] - 6: write literal box of 0001	# label10
+[073] - 2: cur pointer left				
+[074] - 1: box write					
+[075] - 8: jump if box false
+[076] - 5: jump forward  to  label12	
+[077] - 5: jump forward  to  label16	
+[078] - 6: write literal box of 0019	# label12
+[079] - 2: cur pointer left				
+[080] - 5: jump forward  to  label14	
+[081] - 1: box write					# label11
+[082] - 8: jump if box false
+[083] - 5: jump forward  to  label15	
+[084] - 5: jump forward  to  label16	
+[085] - 5: jump forward  to  label17	# label15
+[086] - 6: write literal box of 0000	# label16
+[087] - 5: jump forward  to  label18	
+[088] - 6: write literal box of 0001	# label17
+[089] - 6: write literal box of 0018	# label18
+[090] - 2: cur pointer left				
+[091] - 1: box write					
+[092] - 6: write literal box of 0315	
+[093] - A: box <- b[1] + b[0]		
+[094] - 9: unconditional jump		
+[095] - 6: write literal box of 0001	# label26
+[096] - 2: cur pointer left				
+[097] - 0: box read						
+[098] - 6: write literal box of 0019	
+[099] - 2: cur pointer left				
+[100] - 0: box read						
+[101] - 5: jump forward  to  label19	
+[102] - 1: box write					# label23
+[103] - 6: write literal box of 0001	
+[104] - 2: cur pointer left				
+[105] - 1: box write					
+[106] - B: box <- b[1] - b[0]		
+[107] - 6: write literal box of 0019	
+[108] - 2: cur pointer left				
+[109] - 0: box read						
+[110] - 6: write literal box of 0001	# label19
+[111] - 2: cur pointer left				
+[112] - 1: box write					
+[113] - 6: write literal box of 0019	
+[114] - 2: cur pointer left				
+[115] - 1: box write					
+[116] - 6: write literal box of 0002	
+[117] - 2: cur pointer left				
+[118] - 6: write literal box of 0123	
+[119] - 0: box read						
+[120] - 6: write literal box of 0001	
+[121] - 2: cur pointer left				
+[122] - 5: jump forward  to  label20	
+[123] - 8: jump if box false
+[124] - 5: jump forward  to  label21	
+[125] - 5: jump forward  to  label22	
+[126] - 6: write literal box of 0018	# label21
+[127] - 2: cur pointer left				
+[128] - 5: jump forward  to  label23	
+[129] - 6: write literal box of 0018	# label22
+[130] - 2: cur pointer left				
+[131] - 1: box write					
+[132] - 6: write literal box of 0019	
+[133] - 2: cur pointer left				
+[134] - 1: box write					
+[135] - 6: write literal box of 0272	
+[136] - A: box <- b[1] + b[0]		
+[137] - 9: unconditional jump		
+[138] - 0: box read						# label31
+[139] - 6: write literal box of 0001	
+[140] - 2: cur pointer left				
+[141] - 6: write literal box of 0042	
+[142] - 0: box read						
+[143] - 6: write literal box of 0001	
+[144] - 2: cur pointer left				
+[145] - 6: write literal box of 0024	
+[146] - 0: box read						
+[147] - 6: write literal box of 0001	
+[148] - 2: cur pointer left				
+[149] - 6: write literal box of 0013	
+[150] - 0: box read						
+[151] - 6: write literal box of 0001	
+[152] - 2: cur pointer left				
+[153] - 6: write literal box of 0000	
+[154] - 0: box read						
+[155] - 5: jump forward  to  label24	
+[156] - 6: write literal box of 0017	# label30
+[157] - 2: cur pointer left				
+[158] - 1: box write					
+[159] - 6: write literal box of 0001	
+[160] - 2: cur pointer left				
+[161] - 1: box write					
+[162] - 6: write literal box of 0001	
+[163] - 2: cur pointer left				
+[164] - 1: box write					
+[165] - A: box <- b[1] + b[0]		
+[166] - A: box <- b[1] + b[0]		
+[167] - 6: write literal box of 0128	
+[168] - 6: write literal box of 0002	
+[169] - 2: cur pointer left				
+[170] - 6: write literal box of 0175	
+[171] - 0: box read						
+[172] - 6: write literal box of 0001	
+[173] - 2: cur pointer left				
+[174] - 5: jump forward  to  label26	
+[175] - 6: write literal box of 0017	
+[176] - 2: cur pointer left				
+[177] - 1: box write					
+[178] - 6: write literal box of 0019	
+[179] - 2: cur pointer left				
+[180] - 0: box read						
+[181] - 6: write literal box of 0002	
+[182] - 2: cur pointer left				
+[183] - 1: box write					
+[184] - 6: write literal box of 0019	
+[185] - 2: cur pointer left				
+[186] - 0: box read						
+[187] - 6: write literal box of 0001	
+[188] - 2: cur pointer left				
+[189] - 0: box read						
+[190] - 6: write literal box of 0018	
+[191] - 2: cur pointer left				
+[192] - 1: box write					
+[193] - A: box <- b[1] + b[0]		
+[194] - 6: write literal box of 0128	
+[195] - 6: write literal box of 0004	
+[196] - 2: cur pointer left				
+[197] - 6: write literal box of 0202	
+[198] - 0: box read						
+[199] - 6: write literal box of 0001	
+[200] - 2: cur pointer left				
+[201] - 5: jump forward  to  label26	
+[202] - 6: write literal box of 0207	
+[203] - 0: box read						
+[204] - 6: write literal box of 0001	
+[205] - 2: cur pointer left				
+[206] - 5: jump forward  to  label27	
+[207] - 6: write literal box of 0019	
+[208] - 2: cur pointer left				
+[209] - 1: box write					
+[210] - A: box <- b[1] + b[0]		
+[211] - 0: box read						
+[212] - 6: write literal box of 0016	# label24
+[213] - 2: cur pointer left				
+[214] - 1: box write					
+[215] - 6: write literal box of 0001	
+[216] - B: box <- b[1] - b[0]		
+[217] - 0: box read						
+[218] - 1: box write					
+[219] - 8: jump if box false
+[220] - 5: jump forward  to  label28	
+[221] - 5: jump forward  to  label29	
+[222] - 6: write literal box of 0004	# label28
+[223] - 2: cur pointer left				
+[224] - 5: jump forward  to  label30	
+[225] - 6: write literal box of 0004	# label29
+[226] - 2: cur pointer left				
+[227] - 1: box write					
+[228] - 6: write literal box of 0015	
+[229] - 2: cur pointer left				
+[230] - 1: box write					
+[231] - 6: write literal box of 0176	
+[232] - A: box <- b[1] + b[0]		
+[233] - 9: unconditional jump		
+[234] - 6: write literal box of 0043	# label00
+[235] - 7: push box from peek = 0001	
+[236] - 6: write literal box of 0054	
+[237] - 7: push box from peek = 0004	
+[238] - 6: write literal box of 0035	
+[239] - 7: push box from peek = 0007	
+[240] - 6: write literal box of 0031	
+[241] - 7: push box from peek = 0010	
+[242] - 6: write literal box of 0078	
+[243] - 7: push box from peek = 0013	
+[244] - 6: write literal box of 0116	
+[245] - 7: push box from peek = 0016	
+[246] - 6: write literal box of 0032	
+[247] - 7: push box from peek = 0019	
+[248] - 6: write literal box of 0028	
+[249] - 7: push box from peek = 0022	
+[250] - 6: write literal box of 0001	
+[251] - 7: push box from peek = 0025	
+[252] - 6: write literal box of 0047	
+[253] - 7: push box from peek = 0028	
+[254] - 6: write literal box of 0084	
+[255] - 7: push box from peek = 0031	
+[256] - 6: write literal box of 0025	
+[257] - 7: push box from peek = 0034	
+[258] - 6: write literal box of 0026	
+[259] - 7: push box from peek = 0037	
+[260] - 6: write literal box of 0123	
+[261] - 7: push box from peek = 0040	
+[262] - 6: write literal box of 0069	
+[263] - 7: push box from peek = 0043	
+[264] - 6: write literal box of 0102	
+[265] - 7: push box from peek = 0046	
+[266] - 6: write literal box of 0050	
+[267] - 7: push box from peek = 0049	
+[268] - 6: write literal box of 0065	
+[269] - 7: push box from peek = 0052	
+[270] - 6: write literal box of 0021	
+[271] - 7: push box from peek = 0055	
+[272] - 6: write literal box of 0016	
+[273] - 6: write literal box of 0017	
+[274] - 2: cur pointer left				
+[275] - 6: write literal box of 0280	
+[276] - 0: box read						
+[277] - 6: write literal box of 0001	
+[278] - 2: cur pointer left				
+[279] - 5: jump forward  to  label31	
+[280] - 8: jump if box false
+[281] - 5: jump forward  to  label32	
+[282] - 6: write literal box of 0019	
+[283] - 2: cur pointer left				
+[284] - 5: jump forward  to  label33	
+[285] - 6: write literal box of 0019	# label32
+[286] - 2: cur pointer left				
+[287] - 6: write literal box of 0000	
+[288] - 0: box read						
+[289] - 6: write literal box of 0078	
+[290] - 0: box read						
+[291] - 6: write literal box of 0001	
+[292] - 2: cur pointer left				
+[293] - 6: write literal box of 0111	
+[294] - 0: box read						
+[295] - 6: write literal box of 0001	
+[296] - 2: cur pointer left				
+[297] - 6: write literal box of 0032	
+[298] - 0: box read						
+[299] - 6: write literal box of 0001	
+[300] - 2: cur pointer left				
+[301] - 6: write literal box of 0115	
+[302] - 0: box read						
+[303] - 6: write literal box of 0001	
+[304] - 2: cur pointer left				
+[305] - 6: write literal box of 0105	
+[306] - 0: box read						
+[307] - 6: write literal box of 0001	
+[308] - 2: cur pointer left				
+[309] - 6: write literal box of 0099	
+[310] - 0: box read						
+[311] - 6: write literal box of 0001	
+[312] - 2: cur pointer left				
+[313] - 6: write literal box of 0101	
+[314] - 0: box read						
+[315] - 6: write literal box of 0001	
+[316] - 2: cur pointer left				
+[317] - 6: write literal box of 0032	
+[318] - 0: box read						
+[319] - 6: write literal box of 0001	
+[320] - 2: cur pointer left				
+[321] - 6: write literal box of 0102	
+[322] - 0: box read						
+[323] - 6: write literal box of 0001	
+[324] - 2: cur pointer left				
+[325] - 6: write literal box of 0111	
+[326] - 0: box read						
+[327] - 6: write literal box of 0001	
+[328] - 2: cur pointer left				
+[329] - 6: write literal box of 0114	
+[330] - 0: box read						
+[331] - 6: write literal box of 0001	
+[332] - 2: cur pointer left				
+[333] - 6: write literal box of 0032	
+[334] - 0: box read						
+[335] - 6: write literal box of 0001	
+[336] - 2: cur pointer left				
+[337] - 6: write literal box of 0121	
+[338] - 0: box read						
+[339] - 6: write literal box of 0001	
+[340] - 2: cur pointer left				
+[341] - 6: write literal box of 0111	
+[342] - 0: box read						
+[343] - 6: write literal box of 0001	
+[344] - 2: cur pointer left				
+[345] - 6: write literal box of 0117	
+[346] - 0: box read						
+[347] - 6: write literal box of 0001	
+[348] - 2: cur pointer left				
+[349] - 6: write literal box of 0032	
+[350] - 0: box read						
+[351] - 6: write literal box of 0001	
+[352] - 2: cur pointer left				
+[353] - 6: write literal box of 0058	
+[354] - 0: box read						
+[355] - 6: write literal box of 0001	
+[356] - 2: cur pointer left				
+[357] - 6: write literal box of 0040	
+[358] - 0: box read						
+[359] - 6: write literal box of 0001	
+[360] - 2: cur pointer left				
+[361] - 6: write literal box of 0000	
+[362] - 0: box read						
+[363] - 6: write literal box of 0001	
+[364] - 2: cur pointer left				
+[365] - 6: write literal box of 0019	
+[366] - 3: cur pointer rite				
+[367] - 5: jump forward  to  label34	
+[368] - 6: write literal box of 0000	# label33
+[369] - 0: box read						
+[370] - 6: write literal box of 0067	
+[371] - 0: box read						
+[372] - 6: write literal box of 0001	
+[373] - 2: cur pointer left				
+[374] - 6: write literal box of 0111	
+[375] - 0: box read						
+[376] - 6: write literal box of 0001	
+[377] - 2: cur pointer left				
+[378] - 6: write literal box of 0114	
+[379] - 0: box read						
+[380] - 6: write literal box of 0001	
+[381] - 2: cur pointer left				
+[382] - 6: write literal box of 0114	
+[383] - 0: box read						
+[384] - 6: write literal box of 0001	
+[385] - 2: cur pointer left				
+[386] - 6: write literal box of 0101	
+[387] - 0: box read						
+[388] - 6: write literal box of 0001	
+[389] - 2: cur pointer left				
+[390] - 6: write literal box of 0099	
+[391] - 0: box read						
+[392] - 6: write literal box of 0001	
+[393] - 2: cur pointer left				
+[394] - 6: write literal box of 0116	
+[395] - 0: box read						
+[396] - 6: write literal box of 0001	
+[397] - 2: cur pointer left				
+[398] - 6: write literal box of 0033	
+[399] - 0: box read						
+[400] - 6: write literal box of 0001	
+[401] - 2: cur pointer left				
+[402] - 6: write literal box of 0000	
+[403] - 0: box read						
+[404] - 6: write literal box of 0001	
+[405] - 2: cur pointer left				
+[406] - 6: write literal box of 0009	
