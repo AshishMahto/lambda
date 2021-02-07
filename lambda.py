@@ -158,7 +158,7 @@ lines = []
 
 def runStep(flag, prog, box):
   i, instr0 = head(prog)
-  def print(s, **kwargs): return
+  # def print(s, **kwargs): return
 
   print(f'[{i:03}] - ',end="")
   lines.append(i)
